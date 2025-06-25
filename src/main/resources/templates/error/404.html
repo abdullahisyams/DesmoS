@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+</head>
+<body>
+    <header class="navbar404">
+        <ul>
+            <li class="buttonContainer">
+                <span class="hide hide0"></span>
+                <a th:href="@{/maincontroller/gallery}" class="buttonContainer1">
+                    <span class="defaultNavbar">GALLERY</span>
+                    <span class="hoverNavbar">GALLERY</span>
+                </a>
+                <span class="hide hide1"></span>
+            </li>
+            <li><a th:href="@{/homecontroller/home}" id="navLogo">DesmoS</a></li>
+            <li class="buttonContainer">
+                <span class="hide hideabo0"></span>
+                <a th:href="@{/maincontroller/about}" class="buttonContainer1">
+                    <span class="defaultNavbar">ABOUT</span>
+                    <span class="hoverNavbar"> ABOUT </span>
+                </a>
+                <span class="hide hideabo1"></span>
+            </li>
+        </ul>
+    </header>
+    <div class="main404">
+        <p id="lost">404 - LOST IN AWE</p>
+        <p id="panigale">PANIGALE V4</p>
+        <div class="bike404">
+            <img th:src="@{/images/404bike.png}" alt="" id="bike404">
+        </div>
+    </div>
+</body>
+</html>

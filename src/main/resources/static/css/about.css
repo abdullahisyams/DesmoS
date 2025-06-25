@@ -1,0 +1,279 @@
+@font-face{
+    font-family: 'main';
+    src: url(/fonts/FoundersGroteskXCond-Bold.otf);
+}
+
+@font-face{
+    font-family: 'logo';
+    src: url(/fonts/aftersickdemo-semibold.otf);
+}
+
+@font-face{
+    font-family: 'text';
+    src: url(/fonts/FoundersGrotesk-Regular.otf);
+}
+
+@font-face{
+    font-family: 'textTimer';
+    src: url(/fonts/FoundersGroteskCond-Lt.otf);
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #F5F5F5;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin: 0;
+}
+
+.navbar ul {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateX(-2%);
+}
+
+.navbar ul li {
+    position: relative;
+    list-style: none;
+}
+
+#navLogo {
+    font-family: logo;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.buttonContainer {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+    background-color: #f5f5f5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.buttonContainer span {
+    position: absolute;
+    font-family: 'main';
+    color: black;
+    font-size: 24px;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.buttonContainer1{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5; 
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.hide0 {
+    transform: translateX(-74%);
+}
+
+.hide1 {
+    transform: translateX(74%);
+}
+
+.hideabo0{
+    transform: translateX(-69%);
+}
+
+.hideabo1{
+    transform: translateX(69%);
+}
+
+.defaultNavbar {
+    transform: translateX(0%);
+    z-index: 3;
+}
+
+.hoverNavbar {
+    transform: translateX(-100%);
+    z-index: 2;
+}
+
+.buttonContainer1:hover .defaultNavbar {
+    transform: translateX(100%);
+}
+
+.buttonContainer1:hover .hoverNavbar {
+    transform: translateX(0%);
+}
+
+.aboutPage{
+    width: 100vw;
+    height: 100vh;
+}
+
+.aboutMain {
+    width: 100%;
+    height: 38vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding-top: 80px;
+}
+
+#aboutPanigale {
+    font-family: main;
+    margin: 0;
+    margin-right: -5vw;
+    margin-left: -5vw;
+    color: black;
+    letter-spacing: 0.2vw;
+    font-size: 24vw;
+    position: absolute;
+}
+
+.aboutTittleContainer {
+    width: max-content;
+    height: 12vh;
+    font-family: main;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.aboutTittle {
+    width: 97%;
+    /*height: 5vh;*/
+    margin: 0 1.5%;
+    overflow: hidden;
+}
+
+/* #aboutTittle{
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+} */
+
+.panigaleTimer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+.textTimer {
+    width: 100%;
+    height: 100%;
+    margin: 0 20px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.panigaleTimerText {
+    font-family: main;
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+    color: black;
+    transform: translateY(0.5vh);
+}
+
+.ducatiLogoBlack {
+    width: 2.5vw;
+    height: auto;
+    margin: 0 0.5vw;
+}
+
+.madeByHistory {
+    font-family: textTimer;
+    font-size: 1.4vw;
+    color: black;
+    transform: translateY(0.5vh);
+}
+
+.aboutContent{
+    width: 100%;
+    height: 54vh;
+    margin: 0;
+    display: flex;
+}
+
+.aboutVideo{
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutText {
+    width: 50%;
+    height: 100%; 
+    margin: 0 4vw 0 6vw;
+    padding: 0 0 0 0; 
+    overflow-y: scroll; 
+    scrollbar-width: thin; 
+    scrollbar-color: gray transparent; 
+}
+
+.subtittle {
+    font-family: main;
+    font-size: 3vw;
+    letter-spacing: 0.1vw;
+    margin: 0;
+}
+
+.subtext {
+    font-family: text;
+    font-size: 1.5vw;
+    letter-spacing: 0.07vw;
+    text-align: justify;
+    padding-right: 1.5vw;
+}
+
+.aboutText::-webkit-scrollbar {
+    width: 8px;
+}
+
+.aboutText::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.aboutText::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 4px;
+}

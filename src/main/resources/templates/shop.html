@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesmoS - Shop</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/shop.css}">
+    <link rel="stylesheet" th:href="@{/css/floating-logout.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    
+    <div class="shop-container">
+        <h1>Our Products</h1>
+        
+        <div class="search-section">
+            <form th:action="@{/products/search}" method="get" style="display:flex; gap:10px; align-items:center;">
+                <input type="text" name="query" id="searchInput" placeholder="Search products...">
+                <select name="stock">
+                    <option value="">Stock (All)</option>
+                    <option value="high">High Stock (&gt;5)</option>
+                    <option value="low">Low Stock (&le;5)</option>
+                </select>
+                <select name="price">
+                    <option value="">Price (All)</option>
+                    <option value="above20k">Above 20k</option>
+                    <option value="below20k">Below or Equal 20k</option>
+                </select>
+                <button type="submit" id="searchButton">Search</button>
+            </form>
+        </div>
+        
+        <div class="products-grid">
+            <div th:each="product : ${products}" class="product-card">
+<!--                <img th:src="${product.imageUrl != null and !product.imageUrl.isEmpty()} ? @{/images/{filename}(filename=${product.imageUrl})} : @{/static-images/placeholder.png}" -->
+<!--                     th:alt="${product.name}" class="product-image">-->
+                <img th:src="@{'/uploads/' + ${product.imageUrl}}" alt="gambar">
+                <div class="product-info">
+                    <h3 th:text="${product.name}">Product Name</h3>
+                    <p class="price" th:text="${'$' + product.price}">$0.00</p>
+                    <p class="description" th:text="${product.description}">Product description</p>
+                    <p class="stock" th:text="${'Stock: ' + product.stock}">Stock: 0</p>
+                    <form th:action="@{/cartcontroller/add}" method="post">
+                        <input type="hidden" name="productId" th:value="${product.id}">
+                        <div class="quantity-input" th:if="${product.stock > 0 && session.userId != null}">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" min="1" th:max="${product.stock}" value="1">
+                        </div>
+                        <button type="submit" class="add-to-cart" 
+                            th:disabled="${product.stock == 0 || session.userId == null}"
+                            th:text="${product.stock == 0 ? 'Out of Stock' : (session.userId == null ? 'Login to Add to Cart' : 'Add to Cart')}">
+                            Add to Cart
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/floating-logout :: floating-logout}"></div>
+    <script th:src="@{/js/shop.js}"></script>
+    <script th:src="@{/js/navbar.js}"></script>
+</body>
+</html> 

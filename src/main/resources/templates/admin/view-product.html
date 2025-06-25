@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product - Admin</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+    <style>
+        .product-details {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+
+        .product-info h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .back-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/navbar-admin :: navbar-admin"></div>
+
+    <div class="dashboard-container">
+        <h1>Product Details</h1>
+        
+        <div class="product-details" th:if="${product}">
+            <div class="product-image">
+                <img th:src="@{'/uploads/' + ${product.imageUrl}}" class="img-fluid">
+            </div>
+            
+            <div class="product-info">
+                <h2 th:text="${product.name}"></h2>
+                <p><strong>Price:</strong> $<span th:text="${product.price}"></span></p>
+                <p><strong>Stock:</strong> <span th:text="${product.stock}"></span></p>
+                <p><strong>Description:</strong></p>
+                <p th:text="${product.description}"></p>
+            </div>
+
+            <a th:href="@{/admin/dashboard}" class="back-btn">Back to Products</a>
+        </div>
+    </div>
+
+    <script th:src="@{/js/navbar.js}"></script>
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html> 

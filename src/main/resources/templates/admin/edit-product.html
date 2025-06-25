@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product - Admin</title>
+    <link rel="stylesheet" th:href="@{/css/navbar-admin.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar-admin :: navbar-admin}"></div>
+
+    <div class="dashboard-container">
+        <h1>Edit Product</h1>
+        
+        <div class="product-form">
+            <form id="edit-product-form" th:action="@{/admin/products/edit/{id}(id=${product.id})}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" name="name" th:value="${product.name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Price</label>
+                    <input type="number" id="product-price" name="price" th:value="${product.price}" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-stock">Stock</label>
+                    <input type="number" id="product-stock" name="stock" th:value="${product.stock}" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">Product Image</label>
+                    <div th:if="${product.imageUrl}" class="current-image">
+                        <p>Current Image:</p>
+                        <img th:src="@{'/uploads/' + ${product.imageUrl}}" alt="Current product image" style="max-width: 200px;">
+                    </div>
+                    <input type="file" id="product-image" name="image" accept="image/*">
+                    <input type="hidden" name="currentImageUrl" th:value="${product.imageUrl}">
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Description</label>
+                    <textarea id="product-description" name="description" required th:text="${product.description}"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Save Changes</button>
+                <a th:href="@{/admin/dashboard}" class="back-btn" style="margin-left: 10px;">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/navbar-admin.js}"></script>
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html> 

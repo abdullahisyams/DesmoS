@@ -1,0 +1,54 @@
+.floating-logout {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4444;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'text', sans-serif;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    border: 2px solid white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.95;
+}
+
+.floating-logout:hover {
+    background-color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border-color: #ff0000;
+    opacity: 1;
+}
+
+.floating-logout i {
+    font-size: 1.4em;
+    margin-right: 8px;
+}
+
+.floating-logout span {
+    font-size: 1em;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .floating-logout {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    .floating-logout i {
+        font-size: 1.2em;
+    }
+} 

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="icon" href="/resources/logoDS.png" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="aboutPage">
+        <div class="aboutMain">
+            <p id="aboutPanigale" class="panigaleV4">PANIGALE V4</p>
+        </div>
+        <div class="aboutTittle">
+            <div class="aboutTittleContainer">
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+                <div class="textTimer panigaleAbout">
+                    <p class="panigaleTimerText">PANIGALE V4</p>
+                    <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                    <p class="madeByHistory">MADE BY HISTORY</p>
+                </div>
+            </div>
+        </div>
+        <div class="aboutContent">
+            <div class="aboutVideo">
+                <video width="90%" height="90%" src="/media/video1.mp4" autoplay controls muted></video>
+            </div>
+            <div class="aboutText">
+                <p class="subtittle">The Birth of Ducati</p>
+                <p class="subtext">
+                    Ducati was founded in 1926 in Bologna, Italy, originally
+                    manufacturing radio components. Post-World War II, as the
+                    market shifted, Ducati entered the motorcycle industry in
+                    1946 with the Cucciolo, a small 48cc engine mounted on
+                    bicycles. This transition from electronics to motorbikes
+                    laid the foundation for its legacy in innovation and
+                    performance.
+                </p>
+                <p class="subtittle">The Early Racing Years: Establishing a Legacy</p>
+                <p class="subtext">
+                    During the 1950s and 60s, Ducati began to make a name for
+                    itself in racing. The launch of the Ducati Mach 1, a
+                    high-performance 250cc motorcycle, demonstrated the brand's
+                    focus on speed and engineering precision. It was one of the
+                    fastest bikes of its class, cementing Ducati's reputation as
+                    a leader in competitive motorcycling.
+                </p>
+                <p class="subtittle">Introduction of the L-Twin Engine</p>
+                <p class="subtext">
+                    In the 1970s, Ducati introduced the 90-degree V-twin (L-twin)
+                    engine, a defining feature of its bikes. Paired with its
+                    signature desmodromic valve system, this engine design set
+                    Ducati apart by offering better reliability at high RPMs. This
+                    innovation made Ducati a favorite in both racing circuits and
+                    among enthusiasts.
+                </p>
+                <p class="subtittle">Superbike Dominance</p>
+                <p class="subtext">
+                    The 1990s saw Ducati release the Monster in 1993, a model
+                    credited with saving the brand financially during a challenging
+                    period. Its naked style and accessible performance brought a new
+                    audience to Ducati. Meanwhile, the Superbike series solidified
+                    Ducati's position as a manufacturer of high-performance motorcycles
+                    for racing and enthusiasts alike.
+                </p>
+                <p class="subtittle">Ducati in Global Motorsports</p>
+                <p class="subtext">
+                    In 2007, Ducati won its first MotoGP World Championship with Casey
+                    Stoner, breaking years of Japanese dominance. This victory highlighted
+                    Ducati's technical excellence and competitive spirit. The company
+                    continues to excel in MotoGP and World Superbike, keeping its racing
+                    heritage alive.
+                </p>
+                <p class="subtittle">Joining the Volkswagen Group</p>
+                <p class="subtext">
+                    In 2012, Ducati was acquired by Audi, a subsidiary of the Volkswagen
+                    Group, for €860 million. This partnership brought stability and
+                    resources for further innovation, allowing Ducati to enhance its
+                    motorcycles' technology while staying true to its Italian heritage.
+                </p>
+                <p class="subtittle">A Fusion of Art, Engineering, and Speed</p>
+                <p class="subtext">
+                    Ducati is renowned for its blend of Italian craftsmanship, high-performance
+                    engineering, and innovative designs. Models like the Panigale V4,
+                    known for cutting-edge technology and breathtaking performance,
+                    continue to uphold Ducati's legacy as a brand synonymous with speed,
+                    elegance, and passion.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.aboutTittleContainer');
+            const items = Array.from(container.children);
+            const itemWidth = items[0].offsetWidth;
+
+            // Clone the items to create the initial seamless scrolling effect
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                container.appendChild(clone);
+            });
+
+            // Set up scrolling
+            let scrollPosition = 0;
+            let frameCount = 0;
+            let animationId; // Store the requestAnimationFrame ID
+
+            function scroll() {
+                frameCount++;
+
+                if (frameCount % 2 === 0) { // Change this value to control speed (e.g., % 3 = 1/3 frames)
+                    scrollPosition -= 0.5; // Change this to control speed (e.g., 0.1, 0.5, 1, etc.)
+                }
+
+                // Reset position seamlessly when totalWidth is scrolled
+                if (scrollPosition <= -container.scrollWidth / 2) {
+                    scrollPosition = 0; // Reset scroll position to the start
+                }
+
+                container.style.transform = `translateX(${scrollPosition}px)`;
+
+                // Check if we need to clone more items
+                if (Math.abs(scrollPosition) > container.scrollWidth / 4) {
+                    addMoreClones();
+                }
+
+                animationId = requestAnimationFrame(scroll); // Store the ID for pause/resume functionality
+            }
+
+            function addMoreClones() {
+                const currentItems = Array.from(container.children);
+                currentItems.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    container.appendChild(clone);
+                });
+            }
+
+            // Start scrolling
+            animationId = requestAnimationFrame(scroll);
+
+            // Pause scrolling on hover
+            container.addEventListener('mouseenter', () => {
+                cancelAnimationFrame(animationId); // Stop the requestAnimationFrame loop
+            });
+
+            // Resume scrolling when the mouse leaves
+            container.addEventListener('mouseleave', () => {
+                animationId = requestAnimationFrame(scroll); // Restart the loop
+            });
+        });
+
+        gsap.from(".panigaleV4", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0.1,
+            stagger: 0.05
+        })
+
+        gsap.from(".panigaleAbout", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0.1,
+            stagger: 0.05
+        })
+
+        // Load navbar fragment
+        fetch('/resources/fragments/navbar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+            // Load navbar CSS
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/resources/fragments/navbar.css';
+            document.head.appendChild(link);
+            // Load navbar JS
+            const script = document.createElement('script');
+            script.src = '/resources/fragments/navbar.js';
+            document.body.appendChild(script);
+          });
+    </script>
+    <script th:src="@{/resources/fragments/navbar.js}"></script>
+</body>
+
+</html>

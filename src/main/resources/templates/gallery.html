@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/gallery.css}">
+    <link rel="icon" href="/resources/logoDS.png" type="image/png">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="marker-wrapper">
+        <div class="marker">
+        </div>
+    </div>
+
+    <div class="panigaleHero">
+        <p class="panigaleV4">PANIGALE V4</p>
+    </div>
+
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="slide">
+                <video src="/media/video1.mp4" width="550px" muted loop playsinline></video>
+            </div>
+            <div class="slide slide1 slide4">
+                <img src="/images/gallery1.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide5">
+                <img src="/images/gallery2.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide6">
+                <img src="/images/gallery3.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide7">
+                <img src="/images/gallery4.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide8">
+                <img src="/images/gallery5.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide9">
+                <img src="/images/gallery6.jpg" alt="">
+            </div>
+            <div class="slide slide1 slide10">
+                <img src="/images/gallery7.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="panigaleTimer">
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+            <div class="textTimer">
+                <p class="panigaleTimerText">PANIGALE V4</p>
+                <img src="/images/ducatiLogoBlack.png" alt="" class="ducatiLogoBlack">
+                <p class="madeByHistory">MADE BY HISTORY</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script>
+        // Variables for smooth scrolling
+        let target = 0; 
+        let current = 0; 
+        let ease = 0.075; 
+
+        // Select elements from the DOM
+        const slider = document.querySelector(".slider");
+        const sliderWrapper = document.querySelector(".slider-wrapper");
+        const markerWrapper = document.querySelector(".marker-wrapper");
+
+        // Maximum scrollable distance
+        let maxScroll = sliderWrapper.offsetWidth - window.innerWidth;
+
+        // Function to ease current position towards target
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
+
+        // Update current slide number (1-10) based on marker position
+        function updateActiveSliderNumber(markerMove, markerMaxMove) {
+            const partWidth = markerMaxMove / 10; 
+            let currentPart = Math.round((markerMove - 70) / partWidth) + 1;
+        }
+
+        // Main update loop (runs continuously)
+        function update() {
+            current = lerp(current, target, ease); 
+
+            gsap.set(".slider-wrapper", { x: -current }); 
+
+            let moveRatio = current / maxScroll; 
+            let markerMaxMove = window.innerWidth - markerWrapper.offsetWidth - 170;
+            let markerMove = 70 + moveRatio * markerMaxMove; 
+            gsap.set(".marker-wrapper", { x: markerMove });
+
+            updateActiveSliderNumber(markerMove, markerMaxMove); 
+            requestAnimationFrame(update); 
+        }
+
+        // Update max scroll distance if the window resizes
+        window.addEventListener("resize", () => {
+            maxScroll = sliderWrapper.offsetWidth - window.innerWidth;
+        });
+
+        // Scroll event to update target position
+        window.addEventListener("wheel", (e) => {
+            target += e.deltaY; 
+            target = Math.max(0, Math.min(target, maxScroll)); 
+        });
+
+        update();
+
+
+        const video = document.querySelector('video');
+
+        // Show the first frame as a thumbnail on load
+        video.addEventListener('loadeddata', () => {
+            video.pause();
+            video.currentTime = 30; 
+        });
+
+        // Play the video from a random scene on hover
+        video.addEventListener('mouseenter', () => {
+            const randomTime = Math.random() * video.duration;
+            video.currentTime = randomTime;
+            video.play();
+        });
+
+        // Pause the video and revert to the thumbnail on mouse leave
+        video.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 30; 
+        });
+
+        video.addEventListener('click', () => {
+            video.pause(); 
+            video.controls = true; 
+
+            // Check if the browser supports fullscreen API
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { 
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { 
+                video.msRequestFullscreen();
+            }
+
+            video.play(); 
+        });
+
+        // Listen for exit from fullscreen and remove controls
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) { 
+                video.controls = false; 
+                video.pause(); 
+            }
+        });
+
+        // Support for Safari fullscreen change event
+        document.addEventListener('webkitfullscreenchange', () => {
+            if (!document.webkitFullscreenElement) { 
+                video.controls = false; 
+                video.pause(); 
+            }
+        });
+
+        // Support for older IE/Edge fullscreen change event
+        document.addEventListener('MSFullscreenChange', () => {
+            if (!document.msFullscreenElement) {
+                video.controls = false; 
+                video.pause(); 
+            }
+        });
+
+        gsap.from(".panigaleV4", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0.1,
+            stagger: 0.05
+        })
+
+        gsap.from(".slider", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0.4,
+            stagger: 0.05
+        })
+
+        gsap.from(".textTimer", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0.7,
+            stagger: 0.05
+        })
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.panigaleTimer');
+            const items = Array.from(container.children);
+            const itemWidth = items[0].offsetWidth;
+
+            // Clone the items to create the initial seamless scrolling effect
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                container.appendChild(clone);
+            });
+
+            // Set up scrolling
+            let scrollPosition = 0;
+            let frameCount = 0;
+            let animationId; 
+
+            function scroll() {
+                frameCount++;
+
+                if (frameCount % 2 === 0) { 
+                    scrollPosition -= 0.5; 
+                }
+
+                // Reset position seamlessly when totalWidth is scrolled
+                if (scrollPosition <= -container.scrollWidth / 2) {
+                    scrollPosition = 0; 
+                }
+
+                container.style.transform = `translateX(${scrollPosition}px)`;
+
+                // Check if we need to clone more items
+                if (Math.abs(scrollPosition) > container.scrollWidth / 4) {
+                    addMoreClones();
+                }
+
+                animationId = requestAnimationFrame(scroll); 
+            }
+
+            function addMoreClones() {
+                const currentItems = Array.from(container.children);
+                currentItems.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    container.appendChild(clone);
+                });
+            }
+
+            // Start scrolling
+            animationId = requestAnimationFrame(scroll);
+
+            // Pause scrolling on hover
+            container.addEventListener('mouseenter', () => {
+                cancelAnimationFrame(animationId); 
+            });
+
+            // Resume scrolling when the mouse leaves
+            container.addEventListener('mouseleave', () => {
+                animationId = requestAnimationFrame(scroll);
+            });
+        });
+
+        // Load navbar fragment
+        fetch('/resources/fragments/navbar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+            // Load navbar CSS
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/resources/fragments/navbar.css';
+            document.head.appendChild(link);
+            // Load navbar JS
+            const script = document.createElement('script');
+            script.src = '/resources/fragments/navbar.js';
+            document.body.appendChild(script);
+          });
+    </script>
+    <script th:src="@{/resources/fragments/navbar.js}"></script>
+</body>
+
+</html>

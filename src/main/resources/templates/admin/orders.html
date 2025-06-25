@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Orders</title>
+    <link rel="stylesheet" th:href="@{/css/navbar-admin.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar-admin :: navbar-admin}"></div>
+    <div class="dashboard-container">
+        <h1>Order Management</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th>Refund</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order : ${orders}">
+                        <td th:text="${order.id}">1</td>
+                        <td th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')}">2025-01-01 12:00</td>
+                        <td th:text="${'$' + #numbers.formatDecimal(order.totalAmount, 1, 2)}">$100.00</td>
+                        <td th:text="${order.paymentType}">paypal</td>
+                        <td th:text="${order.status}">PAID</td>
+                        <td>
+                            <span th:if="${order.refundStatus == 'REFUNDED'}" style="color:green; font-weight:bold;">Refunded</span>
+                            <span th:if="${order.refundStatus == 'REQUESTED'}" style="color:orange; font-weight:bold;">Requested</span>
+                            <form th:if="${order.refundStatus == null or order.refundStatus == 'NONE'}" th:action="@{/admin/orders/refund}" method="post" style="display:inline;">
+                                <input type="hidden" name="orderId" th:value="${order.id}" />
+                                <button type="submit" class="edit-btn">Refund</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div th:if="${#lists.isEmpty(orders)}" style="text-align:center; margin-top:2em; color:#888;">
+                No orders found.
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

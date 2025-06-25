@@ -1,0 +1,667 @@
+@font-face{
+    font-family: 'main';
+    src: url(/fonts/FoundersGroteskXCond-Bold.otf);
+}
+
+@font-face{
+    font-family: 'logo';
+    src: url(/fonts/aftersickdemo-semibold.otf);
+}
+
+@font-face{
+    font-family: 'textTimer';
+    src: url(/fonts/FoundersGroteskCond-Lt.otf);
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #F5F5F5;
+    scroll-behavior: smooth;
+}
+
+.pre-loader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    z-index: 98;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 98;
+}
+
+.loader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 400px;
+    z-index: 100;
+    color: #fff;
+}
+
+.count {
+    flex: 2;
+    text-align: right;
+    line-height: 1;
+    padding: 0 1em;
+    z-index: 98;
+    font-family: textTimer;
+}
+
+.copy {
+    flex: 6;
+    font-family: "logo";
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 1;
+    z-index: 98;
+}
+
+.ml16 {
+    overflow: hidden;
+    z-index: 98;
+}
+
+.ml16 .letter {
+    display: inline-block;
+    line-height: 1em;
+    z-index: 98;
+}
+
+.loader-bg {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: 97;
+}
+
+.loader-2 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/images/loaderBg.png) no-repeat 50% 50%;
+    background-size: cover;
+    z-index: 97;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.navbar {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin: 0;
+}
+
+.navbar ul {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateX(-2%);
+}
+
+.navbar ul li {
+    position: relative;
+    list-style: none;
+}
+
+#navLogo {
+    font-family: logo;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.buttonContainer {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+    background-color: #f5f5f5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.buttonContainer span {
+    position: absolute;
+    font-family: 'main';
+    color: black;
+    font-size: 24px;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.buttonContainer1{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5; 
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.hide0 {
+    transform: translateX(-74%);
+}
+
+.hide1 {
+    transform: translateX(74%);
+}
+
+.hideabo0{
+    transform: translateX(-69%);
+}
+
+.hideabo1{
+    transform: translateX(69%);
+}
+
+.defaultNavbar {
+    transform: translateX(0%);
+    z-index: 3;
+}
+
+.hoverNavbar {
+    transform: translateX(-100%);
+    z-index: 2;
+}
+
+.buttonContainer1:hover .defaultNavbar {
+    transform: translateX(100%);
+}
+
+.buttonContainer1:hover .hoverNavbar {
+    transform: translateX(0%);
+}
+
+.heroMain {
+    width: 100%;
+    height: 92%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+#heroPanigale {
+    font-family: main;
+    margin: 0;
+    margin-right: -5vw;
+    margin-left: -5vw;
+    color: black;
+    /* font-size: 445px; */
+    letter-spacing: 0.2vw;
+    font-size: 24vw;
+    position: absolute;
+}
+
+.square {
+    width: 90%; 
+    height: 75%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 10%;
+    /* left: 50%; 
+    transform: translateX(-50%);  */
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+}
+
+#squarePanigale{
+    font-family: main;
+    margin: 0;
+    color: white;
+    /* font-size: 445px;
+    letter-spacing: 10px; */
+    letter-spacing: 0.2vw;
+    font-size: 24vw;
+    margin-left: -10vw;
+    margin-right: -10vw;
+    margin-top: -50vh;
+    position: absolute;
+}
+
+.buttonPosition {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+    transform: translateX(35vw) translateY(25vh);
+}
+
+.buttonContainer2 {
+    position: relative;
+    width: 150px;
+    height: 35px;
+    overflow: hidden;
+    background-color: #f5f5f5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonContainer2 span {
+    position: absolute;
+    font-family: 'main';
+    color: black;
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.buttonContainer3{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.hide2{
+    transform: translateX(-85.5%);
+}
+
+.hide3{
+    transform: translateX(84%);
+}
+
+.defaultSC {
+    transform: translateX(0%);
+    z-index: 3;
+}
+
+.hoverSC {
+    transform: translateX(-100%);
+    z-index: 2;
+}
+
+.buttonContainer2:hover .defaultSC {
+    transform: translateX(100%);
+}
+
+.buttonContainer2:hover .hoverSC {
+    transform: translateX(0%);
+}
+
+.bikeHero{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#bikeHero{
+    width: 100%;
+    position: absolute;
+}
+
+.carouselContainer {
+    width: 100%;
+    height: auto;
+    background-color: #E3E3E3;
+    border-radius: 50px 50px 0 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.productCarousels {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carouselItem {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.productCarousel {
+    width: 100%;
+    height: 70vh;
+    margin-top: 5vh;
+    background-color: #E3E3E3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepageDucati {
+    width: 70vw;
+    transform: translateY(-5vh);
+    z-index: 0;
+}
+
+.ducatiLogo {
+    width: 3vw;
+    z-index: 1;
+    transform: translateX(-75vw) translateY(-25vh);
+}
+
+.productCarousel0 {
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productCarousel0 p {
+    font-family: main;
+    font-size: 2vw;
+    letter-spacing: 0.1vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(12vw) translateY(1vh);
+}
+
+#homepageCarousel1 {
+    width: 45%;
+    height: auto;
+    transform: translateY(5vh);
+}
+
+#homepageCarousel2 {
+    width: 45%;
+    height: auto;
+    transform: translateY(5vh);
+}
+
+.numberCounter {
+    width: 100%;
+    height: 30vh;
+    background-color: #E3E3E3;
+    margin: 0;
+}
+
+.numberTittle {
+    width: 50vw;
+    height: auto;
+    margin: 0 25vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: main;
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+    color: #949494;
+}
+
+.number {
+    width: 60vw;
+    height: auto;
+    margin: 0 20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-15vh);
+}
+
+.line {
+    width: 0.1vw;
+    height: 10vh;
+    background-color: #949494;
+}
+
+.numberPower, .numberTorque, .numberWeight {
+    margin: 0;
+}
+
+.number1 {
+    font-family: main;
+    font-size: 7vw;
+    letter-spacing: 0.1vw;
+    color: black;
+}
+
+.measurement {
+    font-family: main;
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+    color: black;
+}
+
+button.prevBtn, button.nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+button.prevBtn {
+    left: 10px;
+}
+
+button.nextBtn {
+    right: 10px;
+}
+
+.FTE{
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/homepageFTEbg.png);
+    border-radius: 50px 50px 0 0;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#FTEtittle {
+    font-size: 10vw;
+    letter-spacing: 0.2vw;
+    font-family: main;
+    color: white;
+    transform: translateY(-90%);
+}
+
+.FTEbike {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    overflow: hidden; 
+}
+
+#FTEbike {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+    transform: scale(2);
+}
+
+.buttonPosition1 {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+    transform: translateX(40vw) translateY(35vh);
+}
+
+.buttonContainer4 {
+    position: relative;
+    width: 150px;
+    height: 35px;
+    overflow: hidden;
+    background-color: #f5f5f5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonContainer4 span {
+    position: absolute;
+    font-family: 'main';
+    color: black;
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.buttonContainer5 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5; 
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.hide4 {
+    transform: translateX(-82%);
+}
+
+.hide5 {
+    transform: translateX(80.5%);
+}
+
+.defaultDC {
+    transform: translateX(0%);
+    z-index: 3;
+}
+
+.hoverDC {
+    transform: translateX(-100%);
+    z-index: 2;
+}
+
+.buttonContainer4:hover .defaultDC {
+    transform: translateX(100%);
+}
+
+.buttonContainer4:hover .hoverDC {
+    transform: translateX(0%);
+}
+
+.footer {
+    width: 100vw;
+    height: 80vh;
+    background-color: #0F0F0F;
+    overflow: hidden;
+}
+
+.footerTop {
+    width: 96%;
+    height: auto;
+    margin: 0;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerTop p, a {
+    font-family: main;
+    font-size: 2vw;
+    letter-spacing: 0.1vw;
+    color: #8B1225;
+}
+
+.footerTop a {
+    text-decoration: none;
+}
+
+.footerBottom {
+    width: 100%;
+    height: 40vh;
+    transform: translateY(90%);
+    margin: 0;
+    overflow: clip;
+    background-color: #0f0f0f;
+}
+
+.footerBottom p {
+    font-family: main;
+    font-size: 24vw;
+    letter-spacing: 0.2vw;
+    margin: 0;
+    color: #8B1225;
+}

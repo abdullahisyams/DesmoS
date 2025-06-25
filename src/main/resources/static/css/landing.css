@@ -1,0 +1,198 @@
+@font-face{
+    font-family: 'main';
+    src: url(/fonts/FoundersGroteskXCond-Bold.otf);
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    /* overflow-x: hidden; */
+}
+
+.lpVideo {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease;
+    overflow: hidden;
+}
+
+.lpVideo video,
+.lpVideo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+    opacity: 1; /* Default state is visible */
+}
+
+.lpVideo img {
+    opacity: 0; /* Hide image by default */
+}
+
+.lpVideo.showImage video {
+    opacity: 0; /* Fade out video */
+}
+
+.lpVideo.showImage img {
+    opacity: 1; /* Fade in image */
+}
+
+
+.videolp{
+    object-fit: cover;
+}
+
+.text {
+    width: max-content;
+    height: 30vh;
+    overflow-y: hidden;
+}
+
+.lpText{
+    height: 80%;
+    width: 60%;
+    margin-left: 2%;
+    margin-top: -3%;
+    padding: 0;
+    position: absolute;
+    color: white;
+    font-size: 11vw;
+    line-height: 0;
+    letter-spacing: 2vw;
+    font-family: main;
+    transition: 0.5s;
+}
+
+.lpText:hover {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+}
+
+.textSens {
+    display: flex;
+}
+
+.textlp{
+    margin-top: -7%;
+    display: flex;
+}
+
+.beauty{
+    margin-left: 35%;
+}
+
+.motion{
+    margin-left: 25%;
+}
+
+.bottomlp {
+    width: 96vw;
+    height: 80px; 
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-family: main;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    /* padding: 0 2vw;  */
+}
+
+.fmw {
+    margin: 0;
+    font-size: 1.3vw;
+    letter-spacing: 0.1vw;
+    margin-left: 2vw;
+}
+
+.buttonContainer {
+    margin: 0;
+    letter-spacing: 0.1vw;
+    text-decoration: none;
+    color: white;
+    width: 13vw;
+    height: 7vh;
+    transform: translateY(-3vh) translateX(15%);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #CC0000; 
+    border-radius: 0 0 20px 0;
+}
+
+.buttonContainer span {
+    position: absolute;
+    font-family: 'main';
+    color: black;
+    font-size: 1.15vw;
+    letter-spacing: 0.01vw;
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.buttonContainer1{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Hide elements to mask text */
+.hide {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    background-color: #CC0000; /* Same as button background */
+    z-index: 3;
+    transition: transform 0.5s ease;
+}
+
+.hide0 {
+    transform: translateX(-93%);
+}
+
+.hide1 {
+    transform: translateX(64.5%);
+}
+
+/* Default and hover text */
+.defaultButton {
+    transform: translateX(62%);
+    z-index: 3;
+}
+
+.hoverButton {
+    transform: translateX(-62%);
+    z-index: 2;
+}
+
+.buttonContainer:hover {
+    background-color: #00ff04;
+    transition: background-color 0.5s ease;
+}
+
+.buttonContainer:hover .hide {
+    background-color: #00ff04;
+    transition: background-color 0.5s ease;
+}
+
+.buttonContainer:hover .defaultButton {
+    transform: translateX(162%);
+}
+
+.buttonContainer:hover .hoverButton {
+    transform: translateX(62%);
+}

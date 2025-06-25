@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/floating-logout.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container">
+        <div class="pre-loader">
+            <div class="loader"></div>
+            <div class="loader-bg"></div>
+        </div>
+        <div class="loader-content">
+            <div class="count">
+                <p>0</p>
+            </div>
+            <div class="copy">
+                <p class="ml16">DesmoS</p>
+            </div>
+        </div>
+        <div class="loader-2"></div>
+    </div>
+    
+    <div class="heroMain">
+        <p id="heroPanigale" class="heroPanigale1">PANIGALE V4</p>
+        <div class="square">
+            <p id="squarePanigale" class="heroPanigale1">PANIGALE V4</p>
+            <div class="buttonPosition">
+                <span class="buttonContainer2">
+                    <span class="hide hide2"></span>
+                    <span class="buttonContainer3">
+                        <span class="defaultSC">SOUND CHECK</span>
+                        <span class="hoverSC">SOUND CHECK</span>
+                    </span>
+                    <span class="hide hide3"></span>
+                    <audio th:src="@{/media/soundCheck.mp3}" id="soundCheck"></audio>
+                </span>
+            </div>
+        </div>
+        <div class="bikeHero">
+            <img th:src="@{/images/homepageMain.png}" alt="" id="bikeHero">
+        </div>
+    </div>
+    <div class="carouselContainer">
+        <div class="productCarousels">
+            <div class="product01 carouselItem">
+                <div class="productCarousel">
+                    <img th:src="@{/images/homepageDucati.png}" alt="" class="homepageDucati">
+                    <img th:src="@{/images/ducatiLogo.png}" alt="" class="ducatiLogo">
+                    <div class="productCarousel0 product1">
+                        <p>DUCATI PANIGALE V4</p>
+                        <span class="homepageCarousel1">
+                            <img th:src="@{/images/homepageCarousel1.png}" alt="" id="homepageCarousel1">
+                        </span>
+                    </div>
+                </div>
+                <div class="numberCounter">
+                    <div class="numberTittle">
+                        <p>POWER</p>
+                        <p>TORQUE</p>
+                        <p>WEIGHT</p>
+                    </div>
+                    <div class="number">
+                        <div class="numberPower">
+                            <p class="number1">209</p>
+                        </div>
+                        <p class="measurement">hp</p>
+                        <span class="line"></span>
+                        <div class="numberTorque">
+                            <p class="number1">89.5</p>
+                        </div>
+                        <p class="measurement">lp-ft</p>
+                        <span class="line"></span>
+                        <div class="numberWeight">
+                            <p class="number1">191</p>
+                        </div>
+                        <p class="measurement">kg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product02 carouselItem">
+                <div class="productCarousel">
+                    <img th:src="@{/images/homepageDucati.png}" alt="" class="homepageDucati">
+                    <img th:src="@{/images/ducatiLogo.png}" alt="" class="ducatiLogo">
+                    <div class="productCarousel0 product1">
+                        <p>DUCATI PANIGALE V4S</p>
+                        <span class="homepageCarousel1">
+                            <img th:src="@{/images/homepageCarousel2.png}" alt="" id="homepageCarousel2">
+                        </span>
+                    </div>
+                </div>
+                <div class="numberCounter">
+                    <div class="numberTittle">
+                        <p>POWER</p>
+                        <p>TORQUE</p>
+                        <p>WEIGHT</p>
+                    </div>
+                    <div class="number">
+                        <div class="numberPower">
+                            <p class="number1">209</p>
+                        </div>
+                        <p class="measurement">hp</p>
+                        <span class="line"></span>
+                        <div class="numberTorque">
+                            <p class="number1">89.5</p>
+                        </div>
+                        <p class="measurement">lp-ft</p>
+                        <span class="line"></span>
+                        <div class="numberWeight">
+                            <p class="number1">187</p>
+                        </div>
+                        <p class="measurement">kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="prevBtn" onclick="moveSlide(1)">❮</button>
+        <button class="nextBtn" onclick="moveSlide(0)">❯</button>
+    </div>
+    <div class="FTE">
+        <p id="FTEtittle">FASTER THAN EMOTIONS</p>
+        <div class="FTEbike">
+            <img th:src="@{/images/homepageFTEbike.png}" alt="" id="FTEbike">
+        </div>
+        <div class="buttonPosition1">
+            <span class="buttonContainer4">
+                <span class="hide hide4"></span>
+                <span class="buttonContainer5">
+                    <span class="defaultDC">DRY CLUTCH</span>
+                    <span class="hoverDC">DRY CLUTCH</span>
+                </span>
+                <span class="hide hide5"></span>
+                <audio th:src="@{/media/dryclutch.mp3}" id="dryClutch"></audio>
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerTop">
+            <p>FAN MADE WEBSITE</p>
+            <a th:href="@{/error/404}">TRY ME</a>
+        </div>
+        <div class="footerBottom">
+            <p>PANIGALE V4</p>
+        </div>
+    </div>
+
+    <script th:src="@{/js/home.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script>
+        // Function to start a counter that increases randomly up to 100
+        function startLoader() {
+            let counterElement = document.querySelector(".count p"); 
+            let currentValue = 0; 
+
+            // Function to update the counter value randomly
+            function updateCounter() {
+                if (currentValue < 100) { 
+                    let increment = Math.floor(Math.random() * 10) + 1; 
+                    currentValue = Math.min(currentValue + increment, 100); 
+                    counterElement.textContent = currentValue; 
+
+                    let delay = Math.floor(Math.random() * 200) + 25; 
+                    setTimeout(updateCounter, delay); 
+                }
+            }
+
+            updateCounter(); 
+        }
+
+        // Starts the loader animation
+        startLoader();
+
+        gsap.to(".count", { opacity: 0, delay: 3.5, duration: 0.5 });
+
+        // Wraps each letter of the text in the .ml16 element with a span for animation
+        let textWrapper = document.querySelector(".ml16");
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        // Animation for the letters, making them move in and out
+        anime.timeline({ loop: false })
+            .add({
+                targets: '.ml16 .letter',
+                translateY: [-100, 0], 
+                easing: "easeOutExpo", 
+                duration: 1500, 
+                delay: (el, i) => 30 * i 
+            })
+            .add({
+                targets: '.ml16 .letter', 
+                translateY: [0, 100], 
+                easing: "easeOutExpo", 
+                duration: 3000, 
+                delay: (el, i) => 2000 + 30 * i 
+            });
+
+        // Shrinks the pre-loader after 3 seconds
+        gsap.to(".pre-loader", {
+            scale: 0.5,
+            ease: "power4.inOut",
+            duration: 2,
+            delay: 3
+        });
+
+        // Reduces the height of the loader after 3.75 seconds
+        gsap.to(".loader", {
+            height: "0",
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 3.75
+        });
+
+        // Reduces the height of the loader background after 4 seconds
+        gsap.to(".loader-bg", {
+            height: "0",
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 4
+        });
+
+        // Animates the clipPath property of the loader-2 element to shrink it
+        gsap.to(".loader-2", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 3.5
+        });
+
+
+        gsap.from(".heroPanigale1", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 3.75,
+            stagger: 0.05
+        })
+
+    </script>
+    <script th:src="@{/js/navbar.js}"></script>
+</body>
+
+</html>

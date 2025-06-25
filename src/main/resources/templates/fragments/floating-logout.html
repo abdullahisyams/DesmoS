@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="floating-logout">
+        <a th:if="${session.isLoggedIn}" 
+           th:href="@{/authcontroller/logout}" 
+           class="floating-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span th:text="${session.fullname + ' - Logout'}">Logout</span>
+        </a>
+    </div>
+</body>
+</html> 

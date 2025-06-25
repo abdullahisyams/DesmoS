@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DesmoS Admin Navbar</title>
+  <link rel="stylesheet" th:href="@{/resources/fragments/navbar-admin.css}"/>
+</head>
+<body>
+  <nav class="navbar" th:fragment="navbar-admin">
+    <div>
+      <a th:href="@{/admin/dashboard}" class="logo" th:classappend="${#httpServletRequest.requestURI == '/admin/dashboard' ? 'active' : ''}">DesmoS Admin</a>
+      <ul class="nav-links">
+        <li><a th:href="@{/admin/dashboard}" th:classappend="${#httpServletRequest.requestURI == '/admin/dashboard' ? 'active' : ''}">Dashboard</a></li>
+        <li><a th:href="@{/admin/products}" th:classappend="${#httpServletRequest.requestURI == '/admin/products' ? 'active' : ''}">Products</a></li>
+        <li><a th:href="@{/admin/logout}" id="logout-btn">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script th:src="@{/resources/fragments/navbar-admin.js}"></script>
+</body>
+</html> 

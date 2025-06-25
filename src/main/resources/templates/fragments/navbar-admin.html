@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<nav class="navbar" th:fragment="navbar-admin">
+  <div>
+    <a th:href="@{/admin/dashboard}" class="logo">DesmoS Admin</a>
+    <ul class="nav-links">
+      <li><a th:href="@{/admin/dashboard}">Dashboard</a></li>
+      <li><a th:href="@{/admin/products}">Products</a></li>
+      <li><a th:href="@{/admin/orders}">Orders</a></li>
+      <li><a th:href="@{/authcontroller/admin/logout}" id="logout-btn">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+</html> 

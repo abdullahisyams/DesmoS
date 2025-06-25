@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
+    <link rel="icon" th:href="@{/images/logoDS.png}" type="image/png">
+</head>
+
+<body>
+    <div class="lpVideo" id="lpVideo">
+        <video width="100%" height="100%" autoplay muted loop class="videolp">
+            <source th:src="@{/media/video1.mp4}" type="video/mp4">
+        </video>
+        <img th:src="@{/images/loaderBg.png}" alt="Background Image">
+    </div>
+    <div class="lpText">
+        <div class="textSens text">
+            <p>S</p>
+            <p>E</p>
+            <p>N</p>
+            <p>S</p>
+            <p>U</p>
+            <p>A</p>
+            <p>L</p>
+        </div>
+        <div class="beauty textlp text">
+            <p>B</p>
+            <p>E</p>
+            <p>A</p>
+            <p>U</p>
+            <p>T</p>
+            <p>Y</p>
+        </div>
+        <div class="textlp text">
+            <p>E</p>
+            <p>L</p>
+            <p>E</p>
+            <p>G</p>
+            <p>A</p>
+            <p>N</p>
+            <p>T</p>
+        </div>
+        <div class="motion textlp text">
+            <p>M</p>
+            <p>O</p>
+            <p>T</p>
+            <p>I</p>
+            <p>O</p>
+            <p>N</p>
+        </div>
+    </div>
+    <div class="bottomlp">
+        <p class="fmw">FAN MADE WEBSITE</p>
+        <a th:href="@{/homecontroller/home}" class="buttonContainer">
+            <span class="hide hide0"></span>
+            <span class="buttonContainer1">
+                <span class="defaultButton">BEHOLD THE BEAUTY</span>
+                <span class="hoverButton">BEHOLD THE BEAUTY</span>
+            </span>
+            <span class="hide hide1"></span>
+        </a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script>
+        gsap.from(".text p", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 0,
+            stagger: 0.05
+        })
+
+        gsap.from(".bottomlp", {
+            y: 200,
+            ease: "power4.inOut",
+            duration: 1.5,
+            delay: 2,
+            stagger: 0.05
+        })
+
+        const button = document.querySelector(".buttonContainer");
+        const lpVideo = document.getElementById("lpVideo");
+
+        button.addEventListener("mouseover", () => {
+            lpVideo.classList.add("showImage");
+        });
+
+        button.addEventListener("mouseout", () => {
+            lpVideo.classList.remove("showImage");
+        });
+    </script>
+</body>
+
+</html>

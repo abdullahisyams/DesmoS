@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DesmoS</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+</head>
+<body>
+    <nav th:fragment="navbar" class="navbar">
+        <ul class="nav-links">-->
+            <li><a th:href="@{/homecontroller/home}" class="logo active">DesmoS</a></li>
+            <li><a th:href="@{/maincontroller/gallery}">Gallery</a></li>
+            <li><a th:href="@{/maincontroller/about}">About</a></li>
+            <li><a th:href="@{/maincontroller/shop}">Shop</a></li>
+            <li><a th:href="@{/cartcontroller/cart}">Cart</a></li>
+            <li><a th:href="@{/authcontroller/login}">Login</a></li>
+        </ul>
+    </nav>
+
+    <script th:src="@{/js/navbar.js}"></script>
+</body>
+</html> 
